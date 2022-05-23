@@ -1,36 +1,41 @@
-# Indexação e Cortes(slices) de Arrays.
+# Operações com Arrays.
+
+# Com escalares.
+
 import numpy as np
 
-a = np.arange(10, 21)
-print(a)
+np.random.seed(32)
 
-print(a[10])
-print(a[-11])
-print('-='*50)
+a1 = np.random.randint(1, 20, 8)
 
-b = np.random.rand(5, 5)
-print(b)
-print(b[0, 1])  # (Acessar) 1° indice linha 2° indice Coluna.
+print(a1 - 2)  # Subtrai 2 de todos os elementos do array
 
-b[0, 1] = 10  # (Alterar).
-print(b)
-print('-='*50)
-#Slices
+# Entre arrays
 
-a = np.arange(10, 21)
-print(a)
-print(a[2:5])  # Vai da posição inicial a penultima posição final informada.
-print(a[:5])  # Se não especificar o incio, ele parte do  inicio do array.
-print(a[2:])  # Se não especificar o final, ele vai até o fim do array.
-print(a[2:9:2])  # 3° indice ref ao passo.
-print(a[8:2:-1])  # Array invertido.
-print('-='*50)
+a2 = np.random.randint(1, 100, 8)
+print(a1)
+print(a2)
+print(a1 + a2)  # Para operações entre arrays, eles devem ter o m esmo shape
+print(a1 * a2)  # Multiplica elemnto por elemento
 
-b = np.random.rand(5, 5)
-print(b)
-print('\n')
-print(b[0:2, 2])
-print('-='*50)
+# (3x2)x(2x3) = (3x3)
+m1 = np.random.randint(1, 10, (3, 2))
+print(m1)
 
+m2 = np.random.randint(1, 10, (2, 3))
+print(m2)
 
+print(m1.dot(m2))
 
+m3 = np.ones((3, 2))
+m4 = np.ones((2, 3))
+
+print(m3.dot(m4))
+
+# Comparações
+
+a1 = np.array([1, 2, 2, 1])
+a2 = np.array([3, 2, 3, 1])
+
+print(a1 == a2)  # Compara elemento por elemento
+print(np.array_equal(a1, a2))  # Compara o array inteiro
